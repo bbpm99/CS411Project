@@ -1,0 +1,7 @@
+Team Github Repo httpsgithub.combbpm99CS411Project
+
+Proposal 1 Trip Itinerary App
+Our web application would help someone going on vacation to plan out what they would like to do on their trip. The user will say where they are going, for how long, and what sort of things they would like to do there.  Our app would then find locations near wherever the user is staying, and would create an itinerary for the user.  We would use information like the weather throughout the time they are staying, how busy a location is at certain times, and travel times between locations to help create a suggested vacation plan for the user during their stay.  This plan could be as packed or as sparse as the user would like.
+
+Proposal 2 Group Organization and Event Planner App
+This application would serve to help clubs and other organizations plan meetings, set up events, and find venues.  Users could register groups, and list important group topics, themes, and subjects.  Users could search for groups that are based around similar interests they have, and our app could utilize a third party such as Facebook to assist in this process.  Our apps would then assist these groups in organizing events by figuring out what times are the best for most members, and once a date and time is set for an event, would be able to recommend locations for the group to host it.  Venues would be able to list what types of groups they are willing to host, for how long, and for how much, and our app would serve as a convenient place to contact these locations.
