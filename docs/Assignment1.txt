@@ -1,4 +1,5 @@
-Team Github Repo httpsgithub.combbpm99CS411Project
+Team: Nicholas Ni, Caroline Ferris, Tanner Braun, Sarah Crenella
+Team Github Repo: https://github.com/bbpm99/CS411Project
 
 Proposal 1 Trip Itinerary App
 Our web application would help someone going on vacation to plan out what they would like to do on their trip. The user will say where they are going, for how long, and what sort of things they would like to do there.  Our app would then find locations near wherever the user is staying, and would create an itinerary for the user.  We would use information like the weather throughout the time they are staying, how busy a location is at certain times, and travel times between locations to help create a suggested vacation plan for the user during their stay.  This plan could be as packed or as sparse as the user would like.
