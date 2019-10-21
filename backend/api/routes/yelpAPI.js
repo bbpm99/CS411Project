@@ -1,11 +1,15 @@
+// Importing express
 const express = require('express');
 const router = express.Router();
+
+// request allows us to interact more easily with APIs
 var request = require('request');
 
 // Import dotenv package which allows us to interact with .env
 const dotenv = require('dotenv');
 dotenv.config();
 
+// Takes in a location and returns the first business found there by Yelp, accessed with our.url/<location name>
 router.get('/:location', (req, res, next) => {
     var options = {
         method: 'GET',
@@ -24,7 +28,7 @@ router.get('/:location', (req, res, next) => {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
 
-        // sends back the json file returned from yelp's API
+        // sends back the first bunisness in json file returned from yelp's API
         res.status(200).json(body.businesses[0]);
         console.log(body);
     });
