@@ -1,0 +1,4 @@
+<input #box (keyup.enter)="onClick(box.value)">
+<div *ngIf="locationData">
+    <h4>Name: {{ locationData.name }}</h4>
+</div>
