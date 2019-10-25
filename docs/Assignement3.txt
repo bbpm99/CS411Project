@@ -1,0 +1,9 @@
+
+
+We ended up deciding to use a MEAN stack for our project.
+M - mongodb
+E - Express
+A - Angular
+N - Node
+
+While looking for a technology stack to use, we found that information on this stack was very common.  There weren't any other specific stacks that we spent time actually considering before choosing the MEAN stack. This one just stood out because of the amount of information on it, so we decided to use it because we knew that there would be plenty of resources to help us start. 

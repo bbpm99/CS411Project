@@ -9,7 +9,7 @@ var request = require('request');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// Takes in a location and returns the first business found there by Yelp, accessed with our.url/<location name>
+// Takes in a location and returns the first business found there by Yelp, accessed with our.url/yelp/<location name>
 router.get('/:location', (req, res, next) => {
     var options = {
         method: 'GET',
