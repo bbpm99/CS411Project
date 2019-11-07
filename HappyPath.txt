@@ -1,0 +1,12 @@
+Happy Path: 
+	•	User clicks the create an account button 
+	•	they enter an email and password and their email is available 
+	•	they are sent an email to confirm account 
+	•	they click on the link to confirm their account 
+	•	they click on sign in and enter their email and password 
+	•	they are successfully logged in and are able to use the app 
+
+Things that could go wrong: 
+	•	the user could try to sign in without creating an account, the app will notify the user that the email is not found and that they should create an account or try a different email 
+	•	the user could try to create an account when there is already an account associated with the email they entered, the app will notify the user that the email is already in use 
+	•	the user could try to sign in and authorization could fail, the app will notify the user that the email or password they entered are incorrect 
