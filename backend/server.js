@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Just a testing port
-const port = process.env.PORT;
+const port = 3000 //process.env.PORT;
 
 // Start listening on assigned port
 app.listen(port, () => {
@@ -18,3 +18,8 @@ app.listen(port, () => {
 const yelpAPIRoute = require('./api/routes/yelpAPI');
 // When path is our.url/yelp, use the yelpAPIRoute (yelpAPI.js)
 app.use('/yelp', yelpAPIRoute);
+
+/*// Sets the path for when we want to access the sign in API
+const signInAPIRoute = require('./api/routes/singInAPI');
+// When path is our.url/singin, use the signInAPIRoute (signInAPI.js)
+app.use('/singin', signInAPIRoute);*/
