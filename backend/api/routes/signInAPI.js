@@ -66,6 +66,8 @@ router.get('/callback', (req, res, next) => {
         };
 
         request(options).then(function (response) {
+            req.session.name = response.names[0].displayName;
+            req.session.email = response.emailAddresses[0].value;
             res.status(200).json({name: response.names[0].displayName, email:response.emailAddresses[0].value});//,response.emailAddresses[0].value];
         }).catch(function (err) {
             console.log("Error Occurred: " + err);
