@@ -26,7 +26,7 @@ router.get('/save', (req, res, next) => {
 
     if (typeof req.session.email !== 'undefined') {
         save(req.session.email, req.session.currentPlan);
-        res.status(200);
+        res.status(200).json({});
     } else {
         res.json({})
     }
@@ -56,6 +56,7 @@ router.get('/read', async (req, res, next) => {
 router.get('/remove/:removeId', (req, res, next) => {
     if (typeof req.session.email !== 'undefined') {
         var itinToRemove = req.session.itineraries[req.params.removeId];
+        console.log(itinToRemove);
         remove(req.session.email, itinToRemove);
         res.status(200);
     } else {
@@ -79,7 +80,7 @@ async function test() {
     } catch (e) {
         console.log(e);
     } finally {
-        await client.close();
+        //await client.close();
         console.log(x);
     }
 }
@@ -101,7 +102,7 @@ async function save(userEmail, itinToSave) {
     } catch (e) {
         console.log(e);
     } finally {
-        await client.close();
+        //await client.close();
     }
 }
 
@@ -113,7 +114,7 @@ async function find(userEmail) {
     } catch (e) {
         console.log(e);
     } finally {
-        await client.close();
+        //await client.close();
         console.log
         return x;
     }
@@ -127,7 +128,7 @@ async function newUser(userEmail) {
     } catch (e) {
         console.log(e);
     } finally {
-        await client.close();
+        //await client.close();
     }
 }
 
@@ -139,7 +140,7 @@ async function remove(userEmail, itinToRemove) {
     } catch (e) {
         console.log(e);
     } finally {
-        await client.close();
+        //await client.close();
     }
 }
 
@@ -191,7 +192,7 @@ async function addUserItin(client, userName, newItin) {
 async function remUserItin(client, userName, itin) {
     client.db("userData").collection("users").updateOne(
         { username: userName },
-        { $pull: itin }
+        { $pull: { "itineraries" : itin } }
     ).then(function (x) {
         console.log(`${x.modifiedCount} user removed itineraries`)
     });
