@@ -30,3 +30,8 @@ app.use('/yelp', yelpAPIRoute);
 const signInAPIRoute = require('./api/routes/signInAPI');
 // When path is our.url/singin, use the signInAPIRoute (signInAPI.js)
 app.use('/signIn', signInAPIRoute);
+
+// Sets the path for when we want to interact with the database
+const databaseAPIRoute = require('./api/routes/databaseAPI');
+// When path is our.url/data, use the databaseAPIRoute (signInAPI.js)
+app.use('/data', databaseAPIRoute);

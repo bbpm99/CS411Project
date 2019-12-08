@@ -228,10 +228,8 @@ router.get('/:location/:startdate/:enddate', (req, res, next) => {
 
 
                     console.log(plan);
-                    res.status(200).json(plan)
-
-                    console.log(days);
-
+                    req.session.currentPlan = plan;
+                    res.status(200).json(plan);
 
                 }).catch(function (err) {
                     console.log("Error Occurred: " + err);
