@@ -28,12 +28,26 @@ import { LocationsService } from '../locations.service';
     </mat-form-field>
     </p>
     <mat-card align="center">
-    <a mat-button color="primary" (click)="onClick(location.value, 191208, 191209)"> Submit </a>
+    <a mat-button color="primary" (click)="onClick(location.value, updateDOB(startdate.value), updateDOB(enddate.value))"> Submit </a>
     </mat-card>
-    <h4> {{ updateDOB(startdate.value) }} </h4>
-    <div *ngIf="locationData">
-      <h4>Itinerary: {{ locationData.name }}</h4>
-    </div>
+  <table class="table table-striped" *ngFor="let data of locationData; let i = index">
+    <thead>
+      <tr>
+        <h4>Day {{i + 1}}</h4>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Url</th>
+      </tr>
+    <tbody *ngFor="let info of data">
+        <td>{{info.name}}</td>
+        <td>{{updateTime(info.startTime)}}</td>
+        <td>{{updateTime(info.endTime)}}</td>
+        <td>{{info.url}}</td>
+    </tbody>
+  </table>
   `,
   styles: [
     "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -41,22 +55,45 @@ import { LocationsService } from '../locations.service';
   ]
 })
 export class PlaceComponent{
-  private locationData: any;
+  locationData: Object;
 
   constructor(private locationsService: LocationsService) { }
 
   onClick(location, startdate, enddate) {
+    var startday = startdate.substring(4, 6);
+    var endday = enddate.substring(4, 6);
+    var visit_length = Number(endday) - Number(startday) + 1;
     this.locationsService.getLocation(location, startdate, enddate).subscribe((locations) => {
-     console.log(locations);
-     this.locationData = locations;
+      this.locationData = locations;
+      console.log(this.locationData);
     });
   }
 
   updateDOB(date) {
     var dateParts = date.split('/');
-    dateParts[2] = dateParts[2].substring(2, 4);
-    date = dateParts[2] + dateParts[0] + dateParts[1];
+    var month = String(dateParts[0]);
+    if (month.length == 1) { month = '0' + month;}
+    var day = String(dateParts[1]);
+    if (day.length == 1) {day = '0' + day;}
+    let year: string = date.substring(date.length, date.length - 2);
+    date = year + month + day;
     return date;
+  }
+
+  updateTime(time) {
+    var timeParts = String(time).split('.');
+    var hours = timeParts[0];
+    if (Number(hours) > 12) {
+      hours = String(Number(hours) - 12);
+    }
+    var minutes = timeParts[1];
+    if (minutes) {
+      minutes = String(Number(minutes) * 6);
+    } else {
+      minutes = '00';
+    }
+    time = hours + ':' + minutes;
+    return time;
   }
 
 }

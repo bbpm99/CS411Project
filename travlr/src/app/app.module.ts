@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LocationsService } from './locations.service';
 import { PlaceComponent } from './place/place.component';
 import { HomeComponent } from './home/home.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { SavedComponent } from './saved/saved.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -18,13 +17,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MyMaterialModule } from './material.module';
-
 @NgModule({
   declarations: [
     AppComponent,
     PlaceComponent,
     HomeComponent,
-    SignInComponent,
     SavedComponent
   ],
   imports: [
