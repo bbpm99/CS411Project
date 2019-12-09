@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PlaceComponent } from './place/place.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+//import { SignInComponent } from './sign-in/sign-in.component';
 import { SavedComponent } from './saved/saved.component';
 
 
@@ -20,10 +20,10 @@ const routes: Routes = [
     path: 'new-itinerary',
     component: PlaceComponent
   },
-  {
+  /*{
     path: 'signIn',
     component: SignInComponent
-  },
+  },*/
   {
     path: 'saved-itineraries',
     component: SavedComponent

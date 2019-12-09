@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LocationsService } from './locations.service';
 import { PlaceComponent } from './place/place.component';
 import { HomeComponent } from './home/home.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+//import { SignInComponent } from './sign-in/sign-in.component';
 import { SavedComponent } from './saved/saved.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -24,7 +24,7 @@ import { MyMaterialModule } from './material.module';
     AppComponent,
     PlaceComponent,
     HomeComponent,
-    SignInComponent,
+    //SignInComponent,
     SavedComponent
   ],
   imports: [
