@@ -10,7 +10,7 @@ export class LocationsService {
 
   constructor(private http: HttpClient) { }
 
-  getLocation(location) {
-    return this.http.get(this.uri + '/yelp/' + location);
+  getLocation(location, startdate, enddate) {
+    return this.http.get(this.uri + '/yelp/' + location + '/' + startdate + '/' + enddate);
   }
 }
