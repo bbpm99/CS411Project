@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Output} from '@angular/core';
 import { LocationsService } from '../locations.service';
 
 @Component({
@@ -30,24 +30,9 @@ import { LocationsService } from '../locations.service';
     <mat-card align="center">
     <a mat-button color="primary" (click)="onClick(location.value, updateDOB(startdate.value), updateDOB(enddate.value))"> Submit </a>
     </mat-card>
-  <table class="table table-striped" *ngFor="let data of locationData; let i = index">
-    <thead>
-      <tr>
-        <h4>Day {{i + 1}}</h4>
-      </tr>
-      <tr>
-        <th>Name</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Url</th>
-      </tr>
-    <tbody *ngFor="let info of data">
-        <td>{{info.name}}</td>
-        <td>{{updateTime(info.startTime)}}</td>
-        <td>{{updateTime(info.endTime)}}</td>
-        <td>{{info.url}}</td>
-    </tbody>
-  </table>
+    <div *ngIf="locationData">
+    <app-display [locationData]="locationData"></app-display>
+    </div> 
   `,
   styles: [
     "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -60,12 +45,9 @@ export class PlaceComponent{
   constructor(private locationsService: LocationsService) { }
 
   onClick(location, startdate, enddate) {
-    var startday = startdate.substring(4, 6);
-    var endday = enddate.substring(4, 6);
-    var visit_length = Number(endday) - Number(startday) + 1;
     this.locationsService.getLocation(location, startdate, enddate).subscribe((locations) => {
       this.locationData = locations;
-      console.log(this.locationData);
+      //console.log(this.locationData);
     });
   }
 
@@ -78,22 +60,6 @@ export class PlaceComponent{
     let year: string = date.substring(date.length, date.length - 2);
     date = year + month + day;
     return date;
-  }
-
-  updateTime(time) {
-    var timeParts = String(time).split('.');
-    var hours = timeParts[0];
-    if (Number(hours) > 12) {
-      hours = String(Number(hours) - 12);
-    }
-    var minutes = timeParts[1];
-    if (minutes) {
-      minutes = String(Number(minutes) * 6);
-    } else {
-      minutes = '00';
-    }
-    time = hours + ':' + minutes;
-    return time;
   }
 
 }

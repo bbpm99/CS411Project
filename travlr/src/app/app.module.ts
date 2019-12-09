@@ -17,12 +17,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MyMaterialModule } from './material.module';
+import { DisplayComponent } from './display/display.component';
 @NgModule({
   declarations: [
     AppComponent,
     PlaceComponent,
     HomeComponent,
-    SavedComponent
+    SavedComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,

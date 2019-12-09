@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PlaceComponent } from './place/place.component';
 import { SavedComponent } from './saved/saved.component';
+import { DisplayComponent } from './display/display.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'saved-itineraries',
     component: SavedComponent
+  },
+  {
+    path: 'display',
+    component: DisplayComponent
   }
 ];
 
