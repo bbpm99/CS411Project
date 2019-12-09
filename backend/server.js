@@ -4,7 +4,11 @@ const app = express();
 
 // Import cors so we don't get cors error
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+    origin: true,
+    credentials: true,
+    preflightContinue: true
+}));
 
 // Importing express-session for session handling
 // In requests, session variables can be accessed through req.session.varName

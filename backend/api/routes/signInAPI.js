@@ -69,6 +69,7 @@ router.get('/callback', (req, res, next) => {
             req.session.name = response.names[0].displayName;
             req.session.email = response.emailAddresses[0].value;
             //res.status(200).json({name: response.names[0].displayName, email:response.emailAddresses[0].value});//,response.emailAddresses[0].value];
+            console.log(req.session.email);
             res.redirect("http://localhost:4200/new-itinerary");
         }).catch(function (err) {
             console.log("Error Occurred: " + err);

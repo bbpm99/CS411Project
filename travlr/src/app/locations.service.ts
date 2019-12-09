@@ -11,6 +11,6 @@ export class LocationsService {
   constructor(private http: HttpClient) { }
 
   getLocation(location, startdate, enddate) {
-    return this.http.get(this.uri + '/yelp/' + location + '/' + startdate + '/' + enddate);
+    return this.http.get(this.uri + '/yelp/' + location + '/' + startdate + '/' + enddate, { withCredentials: true });
   }
 }
