@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Output} from '@angular/core';
 import { LocationsService } from '../locations.service';
 
 @Component({
@@ -28,12 +28,11 @@ import { LocationsService } from '../locations.service';
     </mat-form-field>
     </p>
     <mat-card align="center">
-    <a mat-button color="primary" (click)="onClick(location.value, 191208, 191209)"> Submit </a>
+    <a mat-button color="primary" (click)="onClick(location.value, updateDOB(startdate.value), updateDOB(enddate.value))"> Submit </a>
     </mat-card>
-    <h4> {{ updateDOB(startdate.value) }} </h4>
     <div *ngIf="locationData">
-      <h4>Itinerary: {{ locationData.name }}</h4>
-    </div>
+    <app-display [locationData]="locationData"></app-display>
+    </div> 
   `,
   styles: [
     "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -41,21 +40,25 @@ import { LocationsService } from '../locations.service';
   ]
 })
 export class PlaceComponent{
-  private locationData: any;
+  locationData: Object;
 
   constructor(private locationsService: LocationsService) { }
 
   onClick(location, startdate, enddate) {
     this.locationsService.getLocation(location, startdate, enddate).subscribe((locations) => {
-     console.log(locations);
-     this.locationData = locations;
+      this.locationData = locations;
+      //console.log(this.locationData);
     });
   }
 
   updateDOB(date) {
     var dateParts = date.split('/');
-    dateParts[2] = dateParts[2].substring(2, 4);
-    date = dateParts[2] + dateParts[0] + dateParts[1];
+    var month = String(dateParts[0]);
+    if (month.length == 1) { month = '0' + month;}
+    var day = String(dateParts[1]);
+    if (day.length == 1) {day = '0' + day;}
+    let year: string = date.substring(date.length, date.length - 2);
+    date = year + month + day;
     return date;
   }
 
