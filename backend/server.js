@@ -18,7 +18,14 @@ dotenv.config();
 const port = process.env.PORT;
 
 // Initialize unique secret for our session
-app.use(session({'secret': '417il89iop34e75rs190asea'}))
+app.use(session({
+    'secret': '417il89iop34e75rs190asea',
+    cookie: {
+        httpOnly: false
+    },
+    'resave': true,
+    'saveUninitialized': true
+}));
 
 // Start listening on assigned port
 app.listen(port, () => {

@@ -39,7 +39,6 @@ router.get('/read', async (req, res, next) => {
 
     if (typeof req.session.email !== 'undefined') {
 
-        console.log('here');
         var temp = await find(req.session.email);
 
         req.session.itineraries = temp.itineraries;
