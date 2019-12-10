@@ -4,13 +4,13 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class SaveItineraryService {
+export class GetSavedPlansService {
 
   uri = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
-  saveItinerary() {
-    return this.http.get(this.uri + '/data/save', { withCredentials: true });
+  getPlans() {
+    return this.http.get(this.uri + '/data/read', { withCredentials: true });
   }
 }

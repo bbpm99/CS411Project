@@ -26,6 +26,9 @@ import { SaveItineraryService } from '../save-itinerary.service';
 
   <mat-card align="center">
       <button mat-raised-button color="primary" (click)="onClick()"> Save Itinerary </button>
+      <div *ngIf="saved">
+        <p align="center"> Your plan has been saved! </p>
+      </div>
   </mat-card>
   `,
   styleUrls: ['./display.component.css']
@@ -47,10 +50,10 @@ export class DisplayComponent implements OnInit {
   }
 
   onClick() {
-    //this.SaveItineraryService.saveItinerary().subscribe((save) => {
-    //  this.saved = save;
-    //});
-    //console.log("this works");
+    this.SaveItineraryService.saveItinerary().subscribe((save) => {
+      this.saved = save;
+    });
+    console.log("this works");
   }
 
   updateTime(time) {

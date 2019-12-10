@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MyMaterialModule } from './material.module';
 import { DisplayComponent } from './display/display.component';
+import { SaveItineraryService } from './save-itinerary.service';
+import { GetSavedPlansService } from './get-saved-plans.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,7 @@ import { DisplayComponent } from './display/display.component';
     MatListModule,
     MyMaterialModule
   ],
-  providers: [LocationsService],
+  providers: [LocationsService, SaveItineraryService, GetSavedPlansService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
